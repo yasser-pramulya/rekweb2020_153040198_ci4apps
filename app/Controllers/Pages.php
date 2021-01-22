@@ -10,9 +10,8 @@ class Pages extends BaseController
             'title' => 'home | WebProgrammingUNPAS',
             'tes' => ['satu', 'dua', 'tiga']
         ];
-        echo view('layout/header', $data);
-        echo view('Pages/home');
-        echo view('layout/footer');
+
+        return view('pages/home', $data);
     }
 
     public function about()
@@ -20,9 +19,29 @@ class Pages extends BaseController
         $data = [
             'title' => 'About Me'
         ];
-        echo view('layout/header', $data);
-        echo view('Pages/about');
-        echo view('layout/footer');
+
+        echo view('pages/about', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact Us',
+            'alamat' => [
+                [
+                    'tipe' => 'rumah',
+                    'alamat' =>  'JL. abc no. 123',
+                    'kota' => 'bandung'
+                ],
+                [
+                    'tipe' => 'Kantor',
+                    'alamat' => 'JL. Setiabudi No. 193',
+                    'kota' => 'Bandung'
+                ]
+            ]
+        ];
+
+        return view('pages/contact', $data);
     }
 
     //--------------------------------------------------------------------
